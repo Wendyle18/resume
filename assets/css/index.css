@@ -1,0 +1,272 @@
+/* styles.css */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #333;
+    --header-text: #fff;
+    --section-bg: #fff;
+    --section-shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: #1a1a1a; /* Darker background for better contrast */
+    --text-color: #e0e0e0; /* Light text for better readability */
+    --header-bg: #121212; /* Darker header for better contrast */
+    --header-text: #fff;
+    --section-bg: #2d2d2d; /* Darker section background */
+    --section-shadow: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header {
+    background: linear-gradient(135deg, #4a148c, #1a237e); /* Darker gradient */
+    color: var(--header-text);
+    padding: 20px 0;
+    text-align: center;
+    top: 0;
+    z-index: 1000; /* Ensure header stays above other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  header p {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links li a {
+    color: var(--header-text);
+    text-decoration: none;
+  }
+  
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  
+  section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: var(--section-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--section-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  a {
+    color: #0073e6;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #4a148c, #1a237e); /* Match header gradient */
+    color: var(--header-text);
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Skills Section */
+  .skill {
+    margin: 15px 0;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* Dark Mode Toggle Button */
+.theme-toggle-container {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  
+  #theme-toggle {
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  #theme-toggle:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--header-bg);
+      padding: 10px 0;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    section {
+      margin: 10px;
+      padding: 15px;
+    }
+  }
+  /* Scroll-to-Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+  
+  .scroll-to-top:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  /* Show scroll-to-top button only on desktop and laptop views */
+  @media (min-width: 768px) {
+    .scroll-to-top {
+      display: flex;
+    }
+  }
